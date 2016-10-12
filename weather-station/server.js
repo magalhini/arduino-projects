@@ -6,8 +6,7 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const five = require('johnny-five');
 const fetch = require('node-fetch');
-const apiKey = 'bdcf92bdc2316915261fc4f7de818938';
-const args = process.argv[2] || 'berlin';
+const apiKey = 'WEATHER_API_KEY';
 
 let servo;
 let leds;
@@ -38,7 +37,6 @@ function getCurrentWeather(weather) {
 }
 
 function mapTemperatureToValue(temp) {
-  console.log('Temperature', temp);
   if (temp <= 0) return 0;
   else if (temp <= 10) return 1;
   else if (temp <= 15) return 2;
